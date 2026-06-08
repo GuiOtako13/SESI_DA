@@ -1,0 +1,97 @@
+
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #1f2a47 0%, #4a70a8 100%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    padding: 20px;
+    color: #1f2a47;
+}
+
+.container {
+    background-color: rgba(255, 255, 255, 0.97);
+    padding: 32px;
+    border-radius: 22px;
+    width: min(420px, 100%);
+    box-shadow: 0 22px 60px rgba(0, 0, 0, 0.18);
+    border: 1px solid rgba(255, 255, 255, 0.4);
+}
+
+h1 {
+    text-align: center;
+    color: #163b6f;
+    text-transform: uppercase;
+    letter-spacing: 1.2px;
+    margin-bottom: 6px;
+}
+
+.hero p {
+    text-align: center;
+    color: #4a6188;
+    margin: 0 0 20px;
+}
+
+.produto {
+    margin-bottom: 18px;
+}
+
+label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: #334066;
+}
+
+input {
+    width: 100%;
+    padding: 12px 14px;
+    border-radius: 12px;
+    border: 1px solid rgba(52, 79, 145, 0.15);
+    background: #f8fafd;
+    font-size: 15px;
+    color: #1a2442;
+    box-sizing: border-box;
+}
+
+input:focus {
+    outline: none;
+    border-color: #6b8ae0;
+    box-shadow: 0 0 0 4px rgba(107, 138, 224, 0.12);
+}
+
+button {
+    width: 100%;
+    padding: 14px 16px;
+    background-color: #2d6cd3;
+    color: white;
+    border: none;
+    border-radius: 14px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 700;
+    transition: transform 0.2s ease, background-color 0.2s ease;
+}
+
+button:hover {
+    background-color: #1f4bb4;
+    transform: translateY(-1px);
+}
+
+h2 {
+    margin-bottom: 18px;
+    color: #1f2a47;
+    font-size: 1.12rem;
+    text-align: center;
+}
+
+#resultado {
+    text-align: center;
+    margin-top: 24px;
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: #163b6f;
+}

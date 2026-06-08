@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rota 66 - Orçamento</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="container">
+        <div class="hero">
+            <h1>Rota 66</h1>
+            <p>Escolha os carros e veja quanto fica o seu orçamento total.</p>
+        </div>
+
+        <h2>Monte seu orçamento</h2>
+
+        <div class="produto">
+            <label for="fusca">Fusca (R$ 20.000,00)</label>
+            <input type="number" id="fusca" min="0" step="1" value="0">
+        </div>
+
+        <div class="produto">
+            <label for="gol">Gol (R$ 15.000,00)</label>
+            <input type="number" id="gol" min="0" step="1" value="0">
+        </div>
+
+        <div class="produto">
+            <label for="chevette">Chevette (R$ 12.500,00)</label>
+            <input type="number" id="chevette" min="0" step="1" value="0">
+        </div>
+
+        <button type="button" onclick="calcular()">Calcular Total</button>
+
+        <h2 id="resultado">Total: R$ 0,00</h2>
+    </div>
+
+    <script src="script.js"></script>
+
+</body>
+</html>
