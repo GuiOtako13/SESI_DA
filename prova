@@ -1,0 +1,138 @@
+1-CREATE DATABASE hotel;
+
+USE hotel;
+
+CREATE TABLE quartos (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    numero TEXT,
+    capacidade INT,
+    vista_mar BOOLEAN,
+    diaria DECIMAL(10,2)
+);
+
+CREATE TABLE clientes (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    nome TEXT,
+    email TEXT,
+    telefone TEXT,
+    tabela TEXT
+);
+
+CREATE TABLE reservas (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    cliente_id INT,
+    quarto_id INT,
+    data_entrada DATE,
+    data_saida DATE,
+
+    FOREIGN KEY (cliente_id) REFERENCES clientes(id),
+    FOREIGN KEY (quarto_id) REFERENCES quartos(id)
+);
+
+2-SHOW TABLES;
+
+INSERT INTO quartos (id, numero, capacidade, vista_mar, diaria)
+VALUES
+(1, 'QUARTO 1', 1, FALSE, 150.00),
+(2, 'QUARTO 2', 5, TRUE, 750.00),
+(3, 'QUARTO 3', 3, TRUE, 450.00),
+(4, 'QUARTO 4', 1, FALSE, 150.00),
+(5, 'QUARTO 5', 2, FALSE, 300.00);
+
+INSERT INTO clientes (id, nome, email, telefone)
+VALUES
+(1, 'Miguel', 'miguel@teste.com', '(46) 9 2520-3616'),
+(2, 'Alice', 'alice@teste.com', '(46) 9 3582-3775'),
+(3, 'Davi', 'davi@teste.com', '(46) 9 2232-1677'),
+(4, 'Julia', 'julia@teste.com', '(46) 9 3172-5526'),
+(5, 'Bruna', 'bruna@teste.com', '(46) 9 2515-0737');
+
+INSERT INTO reservas (id, cliente_id, quarto_id, data_entrada, data_saida)
+VALUES
+(1, 3, 1, '2023-05-01', '2023-05-02'),
+(2, 5, 2, '2023-05-06', '2023-05-07'),
+(3, 2, 3, '2023-04-14', '2023-04-25'),
+(4, 1, 4, '2023-01-01', '2023-01-05'),
+(5, 3, 5, '2023-02-20', '2023-02-24');
+
+3-SELECT *
+A- FROM quartos
+WHERE vista_mar = TRUE;
+
+B- SELECT nome, email
+FROM clientes;
+
+C- SELECT *
+FROM quartos
+WHERE capacidade > 2;
+
+D- SELECT *
+FROM reservas
+WHERE data_entrada BETWEEN '2023-05-01' AND '2023-05-31';
+
+E-SELECT *
+FROM clientes
+WHERE nome LIKE 'B%';
+
+4-A- SELECT COUNT(*) AS total_quartos
+FROM quartos;
+
+B- SELECT *
+FROM quartos
+ORDER BY capacidade ASC
+LIMIT 1;
+
+C- SELECT *
+FROM quartos
+ORDER BY diaria DESC
+LIMIT 1;
+
+D- SELECT AVG(capacidade) AS media_capacidade
+FROM quartos;
+
+E- SELECT COUNT(*) AS total_vista_mar
+FROM quartos
+WHERE vista_mar = TRUE;
+
+5- A- SELECT *
+FROM quartos
+ORDER BY diaria DESC;
+
+B- SELECT *
+FROM quartos
+ORDER BY diaria ASC;
+ 
+6- A- ALTER TABLE reservas
+ADD COLUMN cupom VARCHAR(5);
+
+B- UPDATE reservas
+SET cupom = 'IGTSP'
+WHERE id = 1;
+
+UPDATE reservas
+SET cupom = 'XGTSP'
+WHERE id = 2;
+
+UPDATE reservas
+SET cupom = 'GTSOL'
+WHERE id = 4;
+
+7- UPDATE reservas
+SET cupom = 'GTSOL'
+WHERE id = 4;
+
+8- SELECT *
+FROM reservas
+INNER JOIN quartos
+ON reservas.quarto_id = quartos.id;
+
+9- DELETE FROM reservas
+WHERE id IN (3, 4);
+
+10- A- DROP TABLE reservas;
+
+B- DROP TABLE clientes;
+
+C- DROP TABLE quartos;
+
+D- DROP DATABASE hotel;
